@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+        :root {
+            /* Deep red & white theme */
+            --bg: #450a0a;          /* deep red background */
+            --panel: #7f1d1d;       /* darker red panel */
+            --accent: #ef4444;      /* red accent */
+            --text: #ffffff;        /* white text */
+            --muted: #ffe4e6;       /* light rose */
+            --surface: #ffffff;     /* white surface */
+            --ink: #7f1d1d;         /* deep red ink */
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            background: radial-gradient(1200px 800px at 10% 10%, #7f1d1d 0, var(--bg) 60%),
+                        radial-gradient(1000px 700px at 90% 20%, #991b1b 0, var(--bg) 60%),
+                        var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+        }
+
+        header {
+            padding: 24px 20px 0;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0 0 8px 0;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            font-size: 28px;
+        }
+
+     
+
+        main {
+            display: grid;
+            place-items: center;
+            padding: 24px 20px 32px;
+            gap: 28px;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 110px);
+            gap: 20px;
+            align-items: center;
+            justify-items: center;
+        }
+
+        @media (max-width: 480px) {
+            .button-grid {
+                grid-template-columns: repeat(3, 90px);
+                gap: 16px;
+            }
+        }
+
+        .circle-button {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 2px solid var(--surface);
+            color: var(--ink);
+            background: var(--surface);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+            display: grid;
+            place-items: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, color 160ms ease;
+            user-select: none;
+        }
+
+        .circle-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.45);
+            background: rgba(127, 29, 29, 0.8);
+            color: var(--text);
+            border-color: rgba(127, 29, 29, 0.8);
+        }
+
+        .circle-button:active { transform: translateY(0); }
+
+        .circle-button span {
+            display: block;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .label { color: var(--muted); font-size: 12px; margin-top: 8px; }
+
+        .embed-panel {
+            width: min(1100px, 92vw);
+            background: linear-gradient(180deg, rgba(127,29,29,0.85), rgba(69,10,10,0.85));
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 14px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+            overflow: hidden;
+            display: none;
+        }
+
+        .embed-panel.open { display: block; }
+
+        .embed-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 12px;
+            background: rgba(69, 10, 10, 0.55);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .embed-header .title { font-size: 14px; color: var(--muted); }
+
+        .embed-actions { display: flex; gap: 8px; }
+
+        .icon-btn {
+            border: 1px solid rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.1);
+            color: var(--text);
+            padding: 6px 10px;
+            font-size: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .ex3-modes { display: flex; gap: 10px; padding: 10px 12px; }
+
+        .mode-btn {
+            border: 2px solid var(--surface);
+            background: var(--surface);
+            color: var(--ink);
+            padding: 8px 12px;
+            font-weight: 700;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+        }
+
+        .mode-btn:hover {
+            background: var(--accent);
+            color: var(--text);
+            transform: translateY(-1px);
+        }
+
+        .embed-body { background: var(--surface); color: var(--ink); }
+
+        .inline-container { padding: 12px; min-height: 120px; }
+
+        iframe.embed {
+            display: block;
+            width: 100%;
+            height: min(70vh, 700px);
+            background: #fff;
+            border: 0;
+        }
+
+        footer { text-align: center; color: var(--muted); font-size: 12px; padding: 12px; }
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1>WEB TECHNOLOGY LAB EXERCISES</h1>
+        
+    </header>
+
+    <main>
+        <div class="button-grid" aria-label="Examples">
+            <a class="circle-button" href="EX-1/ex1.html" title="Exercise-1">
+                <span>EXERCISE-1</span>
+            </a>
+            <a class="circle-button" href="EX-2/ex2.html" title="Exercise-2">
+                <span>EXERCISE-2</span>
+            </a>
+            <a class="circle-button" href="EX-3/ex3.html" title="Exercise-3">
+                <span>EXERCISE-3</span>
+            </a>
+        </div>
+
+
+    </main>
+</body>
+</html>
+
+
