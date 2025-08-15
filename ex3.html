@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise-3</title>
+    <style>
+        :root {
+            /* Deep red & white theme */
+            --bg: #450a0a;
+            --panel: #7f1d1d;
+            --accent: #ef4444;
+            --text: #ffffff;
+            --muted: #ffe4e6;
+            --surface: #ffffff;
+            --ink: #7f1d1d;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            background: radial-gradient(1200px 800px at 10% 10%, #7f1d1d 0, var(--bg) 60%),
+                        radial-gradient(1000px 700px at 90% 20%, #991b1b 0, var(--bg) 60%),
+                        var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 0 0 16px 0;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: var(--muted);
+            margin: 0 0 50px 0;
+            line-height: 1.5;
+        }
+
+        .buttons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .method-button {
+            background: var(--surface);
+            color: var(--ink);
+            border: 3px solid var(--surface);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease, color 200ms ease;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            user-select: none;
+        }
+
+        .method-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            background: rgba(127, 29, 29, 0.8);
+            color: var(--text);
+            border-color: rgba(127, 29, 29, 0.8);
+        }
+
+        .method-button:active {
+            transform: translateY(-2px);
+        }
+
+        .method-title {
+            font-size: 28px;
+            font-weight: 800;
+            margin: 0 0 12px 0;
+            letter-spacing: 0.5px;
+        }
+
+        .method-description {
+            font-size: 16px;
+            line-height: 1.4;
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        .back-button {
+            background: rgba(255,255,255,0.1);
+            color: var(--text);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 12px;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 200ms ease, border-color 200ms ease;
+        }
+
+        .back-button:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+            
+            .buttons-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .method-button {
+                padding: 30px 20px;
+            }
+            
+            .method-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>EXERCISE 3</h1>
+        
+        <div class="buttons-container">
+            <a href="inline.html" class="method-button" target="_blank">
+                <h2 class="method-title">ICECREAM SUNDAE</h2>
+                <p class="method-description">Example of Inline CSS</p>
+            </a>
+            
+            <a href="External.html" class="method-button" target="_blank">
+                <h2 class="method-title">ICECREAM CAKES</h2>
+                <p class="method-description">Example of External CSS</p>
+            </a>
+            
+            <a href="embedded.html" class="method-button" target="_blank">
+                <h2 class="method-title">FALUDA</h2>
+                <p class="method-description">Example of Embedded CSS</p>
+            </a>
+        </div>
+        
+        <a href="../index.html" class="back-button">← Back to Home</a>
+    </div>
+</body>
+</html>
