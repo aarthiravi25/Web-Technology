@@ -1,201 +1,104 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #FBC973;
-    color: white;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('delicious-ice-cream-cones.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 20px;
 }
 
-/* Brown Section Container */
-.brown-section-wrapper {
-    background-color: #FBC973;
-    padding: 50px 20px;
+h1 {
+    text-align: left;
+    color: #843c27cc;
+    font-weight: 600;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Brown Section */
-.brown-section {
-    background-color: #843C27;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-    padding: 50px;
-    min-height: 70vh;
-    max-width: 1200px;
-    margin: 0 auto;
-    flex-wrap: wrap;
-    text-align: center;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+form {
+    max-width: 550px;
+    margin: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.text-content {
-    flex: 1;
-    padding-right: 20px;
-}
-
-.brown-section h3 {
-    margin: 0;
+label {
     font-weight: bold;
-    font-size: 40px;
-    letter-spacing: 1px;
-    font-family: 'Poppins', Arial, sans-serif;
-}
-
-.brown-section h1 {
-    font-size: 80px;
-    margin: 10px 0;
-    font-weight: bold;
-    line-height: 1.2;
-    font-family: 'Poppins', Arial, sans-serif;
-}
-
-/* Carousel Styles */
-.carousel-container {
-    flex: 1;
-    text-align: center;
-    position: relative;
-}
-
-.carousel-wrapper {
-    position: relative;
-    display: inline-block;
-    max-width: 400px;
-}
-
-.carousel-image {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    transition: opacity 0.5s ease;
-}
-
-.nav-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255,255,255,0.8);
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    font-size: 18px;
-    color: #C82D2D;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    transition: background 0.3s ease;
-}
-
-.nav-button:hover {
-    background: rgba(255,255,255,1);
-}
-
-.prev-btn {
-    left: -40px;
-}
-
-.next-btn {
-    right: -40px;
-}
-
-.dots-container {
-    position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px;
-}
-
-.dot {
-    height: 12px;
-    width: 12px;
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    background: rgba(255,255,255,0.5);
-}
-
-.dot.active {
-    background: rgba(255,255,255,0.8);
-}
-
-/* Yellow Section */
-.yellow-section {
-    background-color: #FBC973;
-    text-align: center;
-    padding: 10px 20px 20px;
-    position: relative;
-    color: #C82D2D;
-}
-
-.yellow-section h1 {
-    color: #C82D2D;
-    margin: 0 0 10px 0;
-    font-size: 64px;
-    font-weight: 900;
-    letter-spacing: 2px;
-}
-
-.yellow-section p {
-    color: #C82D2D;
-    font-weight: 700;
-    margin: 0;
-    font-size: 20px;
-}
-
-/* Product Cards */
-.products-container {
-    background: #FBC973;
-    padding: 0;
-}
-
-.products-wrapper {
-    max-width: 1400px;
-    margin: 0 auto 50px;
-    padding: 0 20px;
-    position: relative;
-    z-index: 1;
-}
-
-.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.product-card {
-    background: transparent;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-}
-
-.product-card img {
-    width: 100%;
-    height: auto;
     display: block;
-    margin-bottom: -4px;
+    margin-top: 15px;
+    color: #000;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);
 }
 
-.product-info {
-    padding: 0px 5px 10px;
-    margin-top: 0px;
+input:not([type="checkbox"]):not([type="radio"]), select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #000;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
 }
 
-.product-title {
-    margin: 0 0 5px 0;
-    font-size: 30px;
-    color: #C82D2D;
-    text-transform: uppercase;
+/* Checkbox and Radio button container styles */
+.checkbox-group, .radio-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 8px;
 }
 
-.product-description {
-    margin: 0;
-    font-size: 20px;
-    line-height: 1.4;
-    color: #C82D2D;
+/* Checkbox and Radio button styles */
+input[type="checkbox"], input[type="radio"] {
+    width: auto;
+    margin-right: 8px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+/* Label styles for checkboxes and radio buttons */
+.checkbox-label, .radio-label {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 15px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 8px;
+    background: #843c27cc;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: rgba(165, 82, 58, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }

@@ -1,197 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <style>
-        :root {
-            /* Deep red & white theme */
-            --bg: #450a0a;          /* deep red background */
-            --panel: #7f1d1d;       /* darker red panel */
-            --accent: #ef4444;      /* red accent */
-            --text: #ffffff;        /* white text */
-            --muted: #ffe4e6;       /* light rose */
-            --surface: #ffffff;     /* white surface */
-            --ink: #7f1d1d;         /* deep red ink */
-        }
-
-        * { box-sizing: border-box; }
-
-        body {
-            margin: 0;
-            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-            background: radial-gradient(1200px 800px at 10% 10%, #7f1d1d 0, var(--bg) 60%),
-                        radial-gradient(1000px 700px at 90% 20%, #991b1b 0, var(--bg) 60%),
-                        var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-            display: grid;
-            grid-template-rows: auto 1fr auto;
-        }
-
-        header {
-            padding: 24px 20px 0;
-            text-align: center;
-        }
-
-        h1 {
-            margin: 0 0 8px 0;
-            font-weight: 700;
-            letter-spacing: 0.3px;
-            font-size: 28px;
-        }
-
-     
-
-        main {
-            display: grid;
-            place-items: center;
-            padding: 24px 20px 32px;
-            gap: 28px;
-        }
-
-        .button-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 110px);
-            gap: 20px;
-            align-items: center;
-            justify-items: center;
-        }
-
-        @media (max-width: 480px) {
-            .button-grid {
-                grid-template-columns: repeat(3, 90px);
-                gap: 16px;
-            }
-        }
-
-        .circle-button {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            border: 2px solid var(--surface);
-            color: var(--ink);
-            background: var(--surface);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-            display: grid;
-            place-items: center;
-            text-decoration: none;
-            cursor: pointer;
-            transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, color 160ms ease;
-            user-select: none;
-        }
-
-        .circle-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 16px 40px rgba(0,0,0,0.45);
-            background: rgba(127, 29, 29, 0.8);
-            color: var(--text);
-            border-color: rgba(127, 29, 29, 0.8);
-        }
-
-        .circle-button:active { transform: translateY(0); }
-
-        .circle-button span {
-            display: block;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        .label { color: var(--muted); font-size: 12px; margin-top: 8px; }
-
-        .embed-panel {
-            width: min(1100px, 92vw);
-            background: linear-gradient(180deg, rgba(127,29,29,0.85), rgba(69,10,10,0.85));
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            border-radius: 14px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.45);
-            overflow: hidden;
-            display: none;
-        }
-
-        .embed-panel.open { display: block; }
-
-        .embed-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 12px;
-            background: rgba(69, 10, 10, 0.55);
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .embed-header .title { font-size: 14px; color: var(--muted); }
-
-        .embed-actions { display: flex; gap: 8px; }
-
-        .icon-btn {
-            border: 1px solid rgba(255,255,255,0.7);
-            background: rgba(255,255,255,0.1);
-            color: var(--text);
-            padding: 6px 10px;
-            font-size: 12px;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        .ex3-modes { display: flex; gap: 10px; padding: 10px 12px; }
-
-        .mode-btn {
-            border: 2px solid var(--surface);
-            background: var(--surface);
-            color: var(--ink);
-            padding: 8px 12px;
-            font-weight: 700;
-            border-radius: 999px;
-            cursor: pointer;
-            transition: background 160ms ease, color 160ms ease, transform 160ms ease;
-        }
-
-        .mode-btn:hover {
-            background: var(--accent);
-            color: var(--text);
-            transform: translateY(-1px);
-        }
-
-        .embed-body { background: var(--surface); color: var(--ink); }
-
-        .inline-container { padding: 12px; min-height: 120px; }
-
-        iframe.embed {
-            display: block;
-            width: 100%;
-            height: min(70vh, 700px);
-            background: #fff;
-            border: 0;
-        }
-
-        footer { text-align: center; color: var(--muted); font-size: 12px; padding: 12px; }
-    </style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dessert Order Form</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>WEB TECHNOLOGY LAB EXERCISES</h1>
-        
-    </header>
+    <h1>Dessert Order Form</h1>
+    <form id="orderForm" onsubmit="return validateForm()">
 
-    <main>
-        <div class="button-grid" aria-label="Examples">
-            <a class="circle-button" href="EX-1/ex1.html" title="Exercise-1">
-                <span>EXERCISE-1</span>
-            </a>
-            <a class="circle-button" href="EX-2/ex2.html" title="Exercise-2">
-                <span>EXERCISE-2</span>
-            </a>
-            <a class="circle-button" href="EX-3/ex3.html" title="Exercise-3">
-                <span>EXERCISE-3</span>
-            </a>
+        <!-- 1. Full Name -->
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required><br>
+
+        <!-- 2. Email -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="example@mail.com" required><br>
+
+        <!-- 3. Phone Number -->
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" placeholder="10-digit number" pattern="[0-9]{10}" required><br>
+
+        <!-- 4. Dessert Category -->
+        <label for="category">Choose Dessert Category:</label>
+        <select id="category" name="category" onchange="updateItems()" required>
+            <option value="">-- Select Category --</option>
+            <option value="Ice Cream">Ice Cream</option>
+            <option value="Ice Cream Cakes">Ice Cream Cakes</option>
+            <option value="Faluda">Faluda</option>
+            <option value="Sundae">Sundae</option>
+            <option value="Cassata">Cassata</option>
+            <option value="Fruit Ice Cream">Fruit Ice Cream</option>
+            <option value="Soda">Soda</option>
+            <option value="Ice Cream Shake">Ice Cream Shake</option>
+            <option value="Kulfi">Kulfi</option>
+        </select><br>
+
+        <!-- 5. Item Selection -->
+        <label for="item">Choose Specific Item:</label>
+        <select id="item" name="item" required>
+            <option value="">-- Select Item --</option>
+        </select><br>
+
+        <!-- 6. Quantity -->
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="10" required><br>
+
+        <!-- 7. Delivery Date -->
+        <label for="deliveryDate">Preferred Delivery Date:</label>
+        <input type="date" id="deliveryDate" name="deliveryDate" required><br>
+
+        <!-- 8. Delivery Time -->
+        <label for="deliveryTime">Preferred Delivery Time:</label>
+        <input type="time" id="deliveryTime" name="deliveryTime" required><br>
+
+        <!-- 9. Address -->
+        <label for="address">Delivery Address:</label>
+        <textarea id="address" name="address" placeholder="Enter your full address" rows="3" required></textarea><br>
+
+        <!-- 10. Extra Toppings -->
+        <label>Extra Toppings:</label>
+        <div class="checkbox-group">
+            <label class="checkbox-label">
+                <input type="checkbox" name="toppings" value="Nuts">
+                Nuts
+            </label>
+            <label class="checkbox-label">
+                <input type="checkbox" name="toppings" value="Jelly">
+                Jelly
+            </label>
+            <label class="checkbox-label">
+                <input type="checkbox" name="toppings" value="Ice Cream">
+                Extra Ice Cream
+            </label>
+            <label class="checkbox-label">
+                <input type="checkbox" name="toppings" value="Choco Chips">
+                Choco Chips
+            </label>
         </div>
 
+        <!-- 11. Sweetness Level -->
+        <label>Sweetness Level:</label>
+        <div class="radio-group">
+            <label class="radio-label">
+                <input type="radio" name="sweetness" value="Less" required>
+                Less
+            </label>
+            <label class="radio-label">
+                <input type="radio" name="sweetness" value="Medium">
+                Medium
+            </label>
+            <label class="radio-label">
+                <input type="radio" name="sweetness" value="Extra">
+                Extra
+            </label>
+        </div>
 
-    </main>
+        <!-- 12. Upload Payment Proof -->
+        <label for="paymentProof">Upload Payment Proof:</label>
+        <input type="file" id="paymentProof" name="paymentProof" accept="image/*" required><br>
+
+        <!-- 13. Special Instructions -->
+        <label for="instructions">Special Instructions:</label>
+        <input type="text" id="instructions" name="instructions" placeholder="E.g., Make it sugar-free"><br>
+
+        <!-- 14. Coupon Code -->
+        <label for="coupon">Coupon Code:</label>
+        <input type="text" id="coupon" name="coupon" placeholder="Optional"><br>
+
+        <!-- 15. Terms and Conditions -->
+        <div class="checkbox-group">
+            <label class="checkbox-label">
+                <input type="checkbox" id="terms" name="terms" required>
+                I agree to the terms and conditions
+            </label>
+        </div>
+
+        <!-- 16. Submit Button -->
+        <button type="submit">Place Order</button>
+
+    </form>
+
+    <script src="script.js"></script>
 </body>
 </html>
-
-
