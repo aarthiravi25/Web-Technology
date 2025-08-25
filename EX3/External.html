@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ICECREAM CAKES</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        let currentImageIndex = 0;
+        const images = [
+            'Choco-divine-cake.png',
+            'Gold-temptation-Cake.png',
+            'Red-Velvet-cake.png'
+        ];
+        
+        function showImage(index) {
+            const img = document.getElementById('carousel-image');
+            const dots = document.querySelectorAll('.dot');
+            
+            img.src = images[index];
+            
+            // Update dots
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+            
+            currentImageIndex = index;
+        }
+        
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            showImage(currentImageIndex);
+        }
+        
+        function previousImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            showImage(currentImageIndex);
+        }
+        
+        function currentSlide(index) {
+            showImage(index - 1);
+        }
+        
+        // Auto-advance every 3 seconds
+        setInterval(nextImage, 3000);
+    </script>
+</head>
+<body>
+
+    <!-- Brown Section Wrapper -->
+    <section class="brown-section-wrapper">
+        <div class="brown-section">
+            <div class="text-content">
+                <h3>Cakes</h3>
+                <h1>SWEETEN<br>YOUR DAY<br>WITH 'CAKE'</h1>
+            </div>
+            
+            <!-- Carousel -->
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <img id="carousel-image" class="carousel-image" src="Choco-divine-cake.png" alt="Cake">
+                    
+                    <!-- Navigation Buttons -->
+                    <button class="nav-button prev-btn" onclick="previousImage()">❮</button>
+                    <button class="nav-button next-btn" onclick="nextImage()">❯</button>
+                    
+                    <!-- Dots Indicator -->
+                    <div class="dots-container">
+                        <span class="dot active" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Yellow Section -->
+    <section class="yellow-section">
+        <h1>ALL CAKES PRODUCTS</h1>
+        <p>Delight in Every Delectable Slice</p>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-container">
+        <div class="products-wrapper">
+            <div class="products">
+                <div class="product-card">
+                    <img src="Choco-divine-cake.png" alt="Choco Divine Cake">
+                    <div class="product-info">
+                        <h4 class="product-title">CHOCO DIVINE CAKE</h4>
+                        <p class="product-description">Rich chocolate layers with velvety smooth chocolate ganache and premium cocoa frosting</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="Gold-temptation-Cake.png" alt="Gold Temptation Cake">
+                    <div class="product-info">
+                        <h4 class="product-title">GOLD TEMPTATION CAKE</h4>
+                        <p class="product-description">Luxurious golden sponge with caramel layers and edible gold accents for special celebrations</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="Red-Velvet-cake.png" alt="Red Velvet Cake">
+                    <div class="product-info">
+                        <h4 class="product-title">RED VELVET CAKE</h4>
+                        <p class="product-description">Classic red velvet with cream cheese frosting and a hint of cocoa for the perfect balance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <div style="text-align: center; padding: 20px; background: #FBC973;">
+        <a href="../index.html" style="color: #C82D2D; text-decoration: none; font-weight: bold; font-size: 16px;">← Back to Home</a>
+    </div>
+</body>
+</html>

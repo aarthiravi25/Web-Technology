@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ice Cream Sundae</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+    <script>
+        let currentImageIndex = 0;
+        const images = [
+            'Brownie-Sundae.png',
+            'kuch-nahi-sundae.png',
+            'Kit-kat-Sundae.png'
+        ];
+        
+        function showImage(index) {
+            const img = document.getElementById('carousel-image');
+            const dots = document.querySelectorAll('.dot');
+            
+            img.src = images[index];
+            
+            // Update dots
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.style.background = 'rgba(255,255,255,0.8)';
+                } else {
+                    dot.style.background = 'rgba(255,255,255,0.5)';
+                }
+            });
+            
+            currentImageIndex = index;
+        }
+        
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            showImage(currentImageIndex);
+        }
+        
+        function previousImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            showImage(currentImageIndex);
+        }
+        
+        function currentSlide(index) {
+            showImage(index - 1);
+        }
+        
+        // Auto-advance every 3 seconds
+        setInterval(nextImage, 3000);
+    </script>
+</head>
+<body style="margin:0; font-family:Arial, sans-serif; background-color:#FBC973; color:white;">
+
+    <div style="background:#843C27; color:white;">
+        <div style="display:flex; align-items:center; justify-content:center; gap:50px; padding:50px; min-height:70vh; max-width:1200px; margin:0 auto; flex-wrap:wrap; text-align:center;">
+            
+            <!-- Left Side Text -->
+            <div style="flex:1; padding-right:20px;">
+                <h3 style="margin:0; font-weight:bold; font-size:40px; letter-spacing:1px; font-family:'Poppins', Arial, sans-serif;">Ice Cream Sundaes</h3>
+                <h1 style="margin:10px 0; font-size:100px; font-weight:bold; line-height:1.2; font-family:'Poppins', Arial, sans-serif;">
+                    ENJOY A<br>HEAVENLY<br>SUNDAE
+                </h1>
+            </div>
+
+                    <!-- Right Side Image Carousel -->
+        <div style="flex:1; text-align:center; position:relative;">
+            <div id="carousel-container" style="position:relative; display:inline-block; max-width:400px;">
+                <img id="carousel-image" 
+                     src="Brownie-Sundae.png" 
+                     alt="Ice Cream Sundae" 
+                     style="width:100%; height:auto; border-radius:12px; transition:opacity 0.5s ease;">
+                
+                <!-- Left Arrow -->
+                <button onclick="previousImage()" style="position:absolute; left:10px; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.8); border:none; border-radius:50%; width:40px; height:40px; cursor:pointer; font-size:18px; color:#C82D2D; box-shadow:0 2px 8px rgba(0,0,0,0.3); transition:background 0.3s ease;">❮</button>
+                
+                <!-- Right Arrow -->
+                <button onclick="nextImage()" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.8); border:none; border-radius:50%; width:40px; height:40px; cursor:pointer; font-size:18px; color:#C82D2D; box-shadow:0 2px 8px rgba(0,0,0,0.3); transition:background 0.3s ease;">❯</button>
+                
+                <!-- Dots Indicator -->
+                <div style="position:absolute; bottom:15px; left:50%; transform:translateX(-50%); display:flex; gap:8px;">
+                    <span class="dot" onclick="currentSlide(1)" style="height:12px; width:12px; background:rgba(255,255,255,0.8); border-radius:50%; display:inline-block; cursor:pointer; transition:background 0.3s ease;"></span>
+                    <span class="dot" onclick="currentSlide(2)" style="height:12px; width:12px; background:rgba(255,255,255,0.5); border-radius:50%; display:inline-block; cursor:pointer; transition:background 0.3s ease;"></span>
+                    <span class="dot" onclick="currentSlide(3)" style="height:12px; width:12px; background:rgba(255,255,255,0.5); border-radius:50%; display:inline-block; cursor:pointer; transition:background 0.3s ease;"></span>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+
+    <!-- Products Banner -->
+    <div style="position:relative; background:#FBC973; color:#C82D2D; text-align:center; padding:60px 20px 90px;">
+        <h2 style="margin:0 0 10px 0; font-size:64px; font-weight:900; letter-spacing:2px;">ALL SUNDAES PRODUCTS</h2>
+        <div style="font-size:20px; color:#C82D2D; font-weight:700;">Crafting Creamy Delights for Generations</div>
+    </div>
+
+    <!-- Sundae Cards -->
+    <div style="background:#FBC973;">
+        <div style="max-width:1400px; margin:0 auto 50px; padding:0 20px; position:relative; z-index:1;">
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:30px;">
+            <div style="background:transparent; border-radius:12px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.25);">
+                <img src="Brownie-Sundae.png" alt="Brownie Sundae" style="width:100%; height:auto; display:block;">
+                <div style="padding:20px;">
+                    <h4 style="margin:0 0 8px 0; font-size:30px; color:#C82D2D;">BROWNIE SUNDAE</h4>
+                    <p style="margin:0; font-size:20px; line-height:1.4; color:#C82D2D;">The original sundae with a twist, a rich moist brownie gets soaked in our classic Vanilla Ice cream drooled with fudge sauce & nuts</p>
+                </div>
+            </div>
+            <div style="background:transparent; border-radius:12px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.25);">
+                <img src="kuch-nahi-sundae.png" alt="Kuchh Nahin Sundae" style="width:100%; height:auto; display:block;">
+                <div style="padding:20px;">
+                    <h4 style="margin:0 0 8px 0; font-size:30px; color:#C82D2D;">KUCHH NAHIN SUNDAE</h4>
+                    <p style="margin:0; font-size:20px; line-height:1.4; color:#C82D2D;">Giani's special, Tutti Fruity, Chocochips & black current Ice creams topped with mango, strawberry, pinapple cruches and fudge sauce with nuts and waffle crunch</p>
+                </div>
+            </div>
+            <div style="background:transparent; border-radius:12px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.25);">
+                <img src="Kit-kat-Sundae.png" alt="Kit-kat Sundae" style="width:100%; height:auto; display:block;">
+                <div style="padding:20px;">
+                    <h4 style="margin:0 0 8px 0; font-size:30px; color:#C82D2D;">KIT KAT SUNDAE</h4>
+                    <p style="margin:0; font-size:20px; line-height:1.4; color:#C82D2D;">Our classic Vanilla ice cream and chocochip Ice cream layered with our delicious chocolate fudge sauce topped with crushed kitkat chocolate</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="text-align: center; padding: 20px; background: #FBC973;">
+        <a href="../index.html" style="color: #C82D2D; text-decoration: none; font-weight: bold; font-size: 16px;">← Back to Home</a>
+    </div>
+</body>
+</html>
